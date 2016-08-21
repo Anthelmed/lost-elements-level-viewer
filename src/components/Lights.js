@@ -15,7 +15,7 @@ class Lights {
      * @name init
      */
     init() {
-        let globalSpotLight = new THREE.SpotLight( 0xffffff );
+        let globalSpotLight = new THREE.DirectionalLight( 0xffffff );
         let bottomLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
         let ambiantLight = new THREE.AmbientLight( 0x404040, 0.3 );
 

@@ -33,13 +33,20 @@ class App {
         let lights = this.lights.init();
         
         for (let level of levels) {
-            level.position.y = -1000;
             this.scene.add(level);
         }
 
         for (let light of lights) {
            this.scene.add(light); 
         }
+
+        document.querySelector('.button-next').click(() => {
+            this.scene.next();
+        });
+
+        document.querySelector('.button-previous').click(() => {
+            this.scene.previous();
+        });
     }
 
     /**

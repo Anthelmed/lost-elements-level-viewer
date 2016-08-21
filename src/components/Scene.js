@@ -15,11 +15,30 @@ class Scene {
         this.renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
         this.renderer.setSize(width, height);
 
-        this.camera = new THREE.PerspectiveCamera(50, width / height, 1, 10000);
-        this.camera.position.z = -5000;
-        this.camera.rotation.z = 45;
+        this.camera = new THREE.PerspectiveCamera(50, width / height, 1, 30000);
+        this.camera.position.z = -3000;
 
         this.controls = new OrbitControls(this.camera);
+
+    }
+
+    /**
+     * @method
+     * @name next
+     */
+    next() {
+
+        this.camera.position.z -= 7500;
+
+    }
+
+    /**
+     * @method
+     * @name previous
+     */
+    previous() {
+
+        this.camera.position.z += 7500;    
 
     }
 
