@@ -17,6 +17,7 @@ class Scene {
 
         this.camera = new THREE.PerspectiveCamera(50, width / height, 1, 10000);
         this.camera.position.z = -5000;
+        this.camera.rotation.z = 45;
 
         this.controls = new OrbitControls(this.camera);
 

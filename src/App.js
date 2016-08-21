@@ -1,5 +1,5 @@
 import 'TweenMax';
-import Loader from './components/Loader';
+import Levels from './components/Levels';
 import Scene from './components/Scene';
 import Lights from './components/Lights';
 
@@ -15,7 +15,7 @@ class App {
         this.height = window.innerHeight;
 
         this.scene = new Scene(this.width, this.height);
-        this.loader = new Loader();
+        this.levels = new Levels();
         this.lights = new Lights();
 
         root.appendChild(this.scene.renderer.domElement);
@@ -29,12 +29,13 @@ class App {
      * @name start
      */
     start() {
-        let level = this.loader.init();
+        let levels = this.levels.init();
         let lights = this.lights.init();
-
-        console.log(lights);
-
-        this.scene.add(level);
+        
+        for (let level of levels) {
+            level.position.y = -1000;
+            this.scene.add(level);
+        }
 
         for (let light of lights) {
            this.scene.add(light); 
