@@ -1,7 +1,4 @@
 import THREE from 'three'
-import Wagner from '@superguigui/wagner'
-import BloomPass from '@superguigui/wagner/src/passes/bloom/MultiPassBloomPass'
-import OrbitControls from './OrbitControls'
 
 class Scene {
 
@@ -14,31 +11,6 @@ class Scene {
 
         this.renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
         this.renderer.setSize(width, height);
-
-        this.camera = new THREE.PerspectiveCamera(50, width / height, 1, 30000);
-        this.camera.position.z = -3000;
-
-        this.controls = new OrbitControls(this.camera);
-
-    }
-
-    /**
-     * @method
-     * @name next
-     */
-    next() {
-
-        this.camera.position.z -= 7500;
-
-    }
-
-    /**
-     * @method
-     * @name previous
-     */
-    previous() {
-
-        this.camera.position.z += 7500;    
 
     }
 
@@ -71,10 +43,10 @@ class Scene {
      * @name render
      * @description Renders/Draw the scene
      */
-    render() {
+    render(camera) {
 
         this.renderer.autoClearColor = true;
-        this.renderer.render(this.scene, this.camera);
+        this.renderer.render(this.scene, camera);
 
     }
 
@@ -86,9 +58,6 @@ class Scene {
      * @param {number} newHeight
      */
     resize(newWidth, newHeight) {
-
-        this.camera.aspect = newWidth / newHeight;
-        this.camera.updateProjectionMatrix();
 
         this.renderer.setSize(newWidth, newHeight);
 

@@ -7,7 +7,7 @@ class Lights {
      * @constructor
      */
     constructor() {
-        this.lights = [];
+        this.objects = [];
     }
 
     /**
@@ -25,11 +25,11 @@ class Lights {
         bottomLight.position.set(-509.58, -1095.02, -302.88);
         bottomLight.rotation.set(0, -62.00, 180.00);
 
-        this.lights.push(globalSpotLight);
-        this.lights.push(bottomLight);
-        this.lights.push(ambiantLight);
+        this.objects.push(globalSpotLight);
+        this.objects.push(bottomLight);
+        this.objects.push(ambiantLight);
 
-        return this.lights;
+        return this.objects;
     }
 }
 

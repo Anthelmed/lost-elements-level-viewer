@@ -1,6 +1,8 @@
 import 'TweenMax';
-import Levels from './components/Levels';
+import Camera from './components/Camera';
+import AdditionalCameraControls from './components/AdditionalCameraControls';
 import Scene from './components/Scene';
+import Levels from './components/Levels';
 import Lights from './components/Lights';
 
 const root = document.body.querySelector('.app');
@@ -14,9 +16,11 @@ class App {
         this.width = window.innerWidth;
         this.height = window.innerHeight;
 
-        this.scene = new Scene(this.width, this.height);
+        this.camera = new Camera(this.width, this.height);
+        this.scene = new Scene(this.width, this.height, this.camera);
         this.levels = new Levels();
         this.lights = new Lights();
+        this.acc = new AdditionalCameraControls(this.camera, this.levels);
 
         root.appendChild(this.scene.renderer.domElement);
 
@@ -39,14 +43,6 @@ class App {
         for (let light of lights) {
            this.scene.add(light); 
         }
-
-        document.querySelector('.button-next').click(() => {
-            this.scene.next();
-        });
-
-        document.querySelector('.button-previous').click(() => {
-            this.scene.previous();
-        });
     }
 
     /**
@@ -59,6 +55,7 @@ class App {
         this.height = window.innerHeight;
 
         this.scene.resize(this.width, this.height);
+        this.camera.resize(this.width, this.height);
     }
 
     /**
@@ -76,7 +73,7 @@ class App {
      * @description Triggered on every TweenMax tick
      */
     update() {
-        this.scene.render();
+        this.scene.render(this.camera.get());
     }
 
 }

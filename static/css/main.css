@@ -4,7 +4,16 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: radial-gradient(ellipse at bottom, #98eaff 0%, #2e819f 50%, #075a78 100%);
+    transition: background-color 1s linear;
+    background-image: radial-gradient(ellipse at bottom, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%);
+}
+
+body[data-active-level="0"] {
+	background-color: #09658a;
+}
+
+body[data-active-level="1"] {
+	background-color: #3bc4d8;
 }
 
 canvas {
@@ -19,6 +28,10 @@ button, a {
 
 button:hover, a:hover {
 	opacity: 1;
+}
+
+button:disabled {
+	display: none;
 }
 
 button {
