@@ -1,5 +1,5 @@
 {
-  "name": "lost-elements-tuto-platform-water",
+  "name": "lost-elements-level-viewer",
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "dependencies": {
     "gsap": "^1.18.4",
     "json-loader": "^0.5.4",
-    "three": "^0.76.1"
+    "three": "^0.78.0"
   },
   "devDependencies": {
     "@superguigui/wagner": "^0.1.21",

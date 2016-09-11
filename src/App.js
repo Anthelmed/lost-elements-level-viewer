@@ -17,6 +17,7 @@ class App {
         this.height = window.innerHeight;
 
         this.camera = new Camera(this.width, this.height);
+        this.controls = this.camera.getControls();
         this.scene = new Scene(this.width, this.height, this.camera);
         this.levels = new Levels();
         this.lights = new Lights();
@@ -35,13 +36,13 @@ class App {
     start() {
         let levels = this.levels.init();
         let lights = this.lights.init();
-        
+
         for (let level of levels) {
             this.scene.add(level);
         }
 
         for (let light of lights) {
-           this.scene.add(light); 
+           this.scene.add(light);
         }
     }
 
@@ -73,7 +74,8 @@ class App {
      * @description Triggered on every TweenMax tick
      */
     update() {
-        this.scene.render(this.camera.get());
+        this.scene.render(this.camera.getCamera());
+        this.controls.update();
     }
 
 }

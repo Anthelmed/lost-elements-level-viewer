@@ -2,43 +2,42 @@ import 'TweenMax'
 import THREE from 'three'
 import OrbitControls from './OrbitControls'
 
-let defaultCameraPosition = null;
-let defaultCameraQuaternion = null;
+const delay = 1;
 
 class Camera {
-	constructor(width, height) {
+    constructor(width, height) {
 
-		this.camera = new THREE.PerspectiveCamera(50, width / height, 1, 30000);
+        this.camera = new THREE.PerspectiveCamera(50, width / height, 1, 13000);
         this.camera.position.z = -3000;
 
         this.controls = new OrbitControls(this.camera);
         this.controls.enablePan = false;
+    }
 
-        defaultCameraPosition = this.camera.position;
-        defaultCameraQuaternion = this.camera.quaternion;
-
-        console.log(this.camera, this.controls);
-
-	}
-
-	/**
+    /**
      * @method
-     * @name get
+     * @name getCamera
      */
-    get() {
+    getCamera() {
         return this.camera;
     }
 
-	 /**
+    /**
+     * @method
+     * @name getControls
+     */
+    getControls() {
+        return this.controls;
+    }
+
+    /**
      * @method
      * @name moveTo
      */
-    moveTo(newCameraPosition) {
+    moveTo(newCameraPositionX) {
 
-        TweenMax.to(this.camera.position, 1, newCameraPosition);
-        // TweenMax.to(this.camera.quaternion, 1, defaultCameraQuaternion);
-        TweenMax.to(this.controls.center, 1, {x: 0, y: 0, z: 0});
-        TweenMax.to(this.controls.position0, 1, newCameraPosition);
+        TweenMax.to(this.controls.center, delay, {x: newCameraPositionX, y: 0, z: 0});
+        TweenMax.to(this.camera.position, delay, {x: newCameraPositionX, y: 0, z: -3000});
 
     }
 
