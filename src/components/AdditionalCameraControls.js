@@ -40,7 +40,7 @@ class AdditionalCameraControls {
     buttonPrevious() {
         if(this.levels.activeLevel > 0) {
             let previousLevel = this.levels.activeLevel - 1;
-            let newCameraPositionX = 7500*previousLevel;
+            let newCameraPositionX = -7500*previousLevel;
 
             this.levels.setActiveLevel(previousLevel);
             this.camera.moveTo(newCameraPositionX);

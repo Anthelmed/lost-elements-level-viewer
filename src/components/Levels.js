@@ -28,15 +28,15 @@ class Level1 {
         tutorialWater.position.y = -500;
         tutorialWater.rotation.y = 45;
 
-        Level1Platform1.position.y = -500;
+        Level1Platform1.position.y = -400;
         Level1Platform1.position.x = -7500;
         Level1Platform1.rotation.y = 45;
 
-        Level1Platform2.position.y = -500;
+        Level1Platform2.position.y = -400;
         Level1Platform2.position.x = -7500*2;
         Level1Platform2.rotation.y = 45;
 
-        Level1Platform3.position.y = -500;
+        Level1Platform3.position.y = 1000;
         Level1Platform3.position.x = -7500*3;
         Level1Platform3.rotation.y = 45;
 
